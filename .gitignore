@@ -1,0 +1,23 @@
+# R session files
+.Rhistory
+.RData
+.Rproj.user/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs/cache
+*.log
+rsconnect/
+
+# Avoid accidentally committing raw analysis artifacts.
+# The two locked app objects below are intentionally allowed.
+*.rds
+!data/model_bundle.rds
+!data/predictor_metadata.rds
+
+# Keep deployment manifest trackable if you choose to commit it.
+!manifest.json

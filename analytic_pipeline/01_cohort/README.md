@@ -9,6 +9,6 @@ This stage will archive the final ACS TQP PUF 2020–2024 harmonization/phenotyp
 
 **Frozen cohort:** N=424,017; admission-year counts: 2020 75,237; 2021 83,076; 2022 85,301; 2023 89,754; 2024 90,649.
 
-**Archive status:** The final runnable cohort/phenotype sources and non-patient-level operation code map are not yet included here. The root legacy app's data/ files are not the manuscript cohort.
+**Archive status:** The curated non-patient-level [therapeutic operation code map](../reference/spine_operative_icd10pcs_map.csv) is archived (647 unique ICD-10-PCS codes; six categories). Final runnable cohort/phenotype source transfer is pending. The root legacy app's data/ files are not the manuscript cohort.
 
 No patient-level PUFs, extracts, IDs, or derived modeling datasets may be published.

@@ -498,6 +498,7 @@ load_binary_output <- function(
       )
     )
   }
+
   stop("Unknown output id: ", id, call. = FALSE)
 }
 
@@ -996,7 +997,8 @@ bootstrap_duration <- function(d, B, seed, cl) {
 for (i in seq_len(nrow(duration_specs))) {
   id <- duration_specs$outcome[i]
 
-  pfile <- file.path(    DURATION_DIR,
+  pfile <- file.path(
+    DURATION_DIR,
     "predictions",
     paste0(
       id,

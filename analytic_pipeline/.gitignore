@@ -1,0 +1,25 @@
+# ACS licensed / patient-level data, prediction caches and trained intermediary files
+*.parquet
+*.feather
+*.fst
+*.rds
+*.RData
+*.rda
+*.sqlite
+*.db
+*.bin
+*.jsonl
+**/patient_level/**
+**/predictions/**
+**/grid_search/**
+**/checkpoints/**
+**/output*/**
+**/derived/**
+**/raw/**
+**/.Rhistory
+**/.Rproj.user/**
+00_config.R
+.Renviron
+.env
+# Existing legacy application RDS files are intentionally not removed from git by this update.
+# Explicitly review any intended final deployment-model objects before force-adding.

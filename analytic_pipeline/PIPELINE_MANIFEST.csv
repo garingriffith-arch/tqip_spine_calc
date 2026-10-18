@@ -1,15 +1,24 @@
-stage,component,status,public_path,notes
-Cohort construction,Gate 1 cohort flow and TL phenotype,Pending source transfer,,"Use final age 18–89 direct-presentation narrow phenotype; exclude transfer-in and truncated downstream trajectories."
-Cohort construction,Diagnosis-derived field repair/QC,Pending source transfer,,"Final cohort repaired and verified before publication analyses."
-Cohort construction,Therapeutic TL procedure code map,Archived aggregate code map,analytic_pipeline/reference/spine_operative_icd10pcs_map.csv,"647 unique ICD-10-PCS codes across six therapeutic categories; no patient-level records."
-Predictor adjudication,Stage 2B and 2C family/finalist selection,Pending source transfer,,"Final core 54 and contextual 57 predictors."
-Classification,Rolling-origin 2022–2024 XGBoost,Pending source transfer,,"True 3-class disposition/HLOS/ICU/ventilation plus recorded operation."
-Continuous duration,Q10/Q50/Q90 duration quantiles,Pending source transfer,,"Hospital LOS unconditional; ICU and ventilation conditional on resource use."
-Comparator,Endpoint-matched ridge regression,Pending source transfer,,"Final comparator analyses frozen."
-Sensitivity,Subgroups airway early death composites broad phenotype,Pending source transfer,,"No routine transfer-in analysis; no facility keys."
-Reporting,Reviewer-facing tables and eTables,Archived,analytic_pipeline/05_reporting/30_build_tables.R,"Executes implementation v4.1; requires local locked datasets and aggregate outputs."
-Reporting,Fixed-prediction metrics and 2024 calibration postprocessing,Archived source with separate repair,analytic_pipeline/implementation/08_build_SPINE_TRACT_manuscript_prediction_outputs_v3_parallel.R,"Use paired 08c pooled OOF AUROC numeric postprocessing correction in implementation/; no models are refit."
-Reporting,2024 probability and duration figure package,Pending final figure source,,"Figure revisions remain in progress; do not upload superseded figure scripts."
-Reporting,TRIPOD+AI analytic counts/predictor dictionary,Included in table builder,analytic_pipeline/implementation/30_build_SPINE_TRACT_final_tables_PUBLIC_REVIEWER_v4_1.R,"eTable 10 and machine-readable predictor dictionary."
-Reporting,TRIPOD+AI subgroup CI/facility audit,Pending final support source,,"Subgroup bootstrap; no usable facility keys in study."
-Deployment,Final 2020–2024 fit and final Shiny migration,Not yet archived,,"Do not equate existing legacy Shiny bundle with final study models."
+step,stage,entrypoint,implementation,status,relevance
+01,01_cohort,01_cohort/01_gate1_cohort_audit.R,implementation/01_spine_tract_gate1_audit_v2_1.R,Archived final source,Source-cohort selection and operative endpoint QC
+02,01_cohort,01_cohort/02_build_candidate_dataset.R,implementation/02_build_spine_tract_candidate_dataset_v1_2_2.R,Archived final source,Original Stage 2 construction; must execute diagnosis repair next
+03,01_cohort,01_cohort/03_repair_diagnosis_phenotypes.R,implementation/02c_repair_SPINE_TRACT_frozen_dx_phenotypes_v1.R,Archived final source,Mandatory correction of diagnosis-derived fields
+04,02_model_development,02_model_development/04_screen_predictor_families.R,implementation/03r_run_SPINE_TRACT_predictor_adjudication_REPAIRED_DX_gpu_v1.R,Archived final source,Diagnosis-corrected family screening
+05,02_model_development,02_model_development/05_reconcile_family_summaries.R,implementation/03r_repair_SPINE_TRACT_repaired_DX_stage2B_summaries_v1_1.R,Archived final source,Summary postprocessing; does not refit models
+06,02_model_development,02_model_development/06_select_final_predictors.R,implementation/04r_run_SPINE_TRACT_stage2C_REPAIRED_DX_gpu_v1.R,Archived final source,Final 54/57 architecture
+07,02_model_development,02_model_development/07_fit_temporal_classification.R,implementation/05r_run_SPINE_TRACT_final_classification_REPAIRED_DX_gpu_v1.R,Archived final source,Rolling-origin XGBoost probability and trajectory models
+08,02_model_development,02_model_development/08_fit_temporal_duration_quantiles.R,implementation/06r_run_SPINE_TRACT_duration_quantiles_REPAIRED_DX_gpu_v1.R,Archived final source,Rolling-origin duration quantiles
+09,02_model_development,02_model_development/09_reconcile_discrete_calibration.R,implementation/06s_recalculate_SPINE_TRACT_duration_discrete_calibration_v1.R,Archived final source,"Discrete duration calibration correction, without refits"
+10,02_model_development,02_model_development/10_compare_ridge.R,implementation/09r_run_SPINE_TRACT_fair_ridge_REPAIRED_DX_v1_2.R,Archived final source,Ridge comparator
+11,02_model_development,02_model_development/11_extend_ridge_vent2024.R,implementation/09s_extend_SPINE_TRACT_ridge_vent2024_lambda_only_v1.R,Archived final source,Targeted penalty-boundary continuation
+12,03_sensitivity,03_sensitivity/12_run_fixed_prediction_robustness.R,implementation/08a_run_SPINE_TRACT_fixed_prediction_robustness_REPAIRED_DX_v1.R,Archived final source,Fixed-prediction robustness
+13,03_sensitivity,03_sensitivity/13_run_composite_outcome_sensitivity.R,implementation/08b_run_SPINE_TRACT_death_or_prolonged_composite_REPAIRED_DX_gpu_v1.R,Archived final source,Composite death-or-prolonged-resource sensitivity
+14,03_sensitivity,03_sensitivity/14_run_no_refit_robustness.R,implementation/14_build_SPINE_TRACT_no_refit_robustness_suite_v1_2.R,Archived final source,Broad phenotype and clinical subgroup analyses
+15,03_sensitivity,03_sensitivity/15_audit_spine_operation_endpoint.R,implementation/09_run_SPINE_TRACT_surgery_forensic_audit_v4_1_lean.R,Archived final source,Optional supportive endpoint forensic QC
+16,05_reporting,05_reporting/16_build_prediction_reporting.R,implementation/08_build_SPINE_TRACT_manuscript_prediction_outputs_v3_parallel.R,Archived final source,"Fixed-prediction metrics, calibration and intervals"
+17,05_reporting,05_reporting/17_build_final_manuscript_outputs.R,implementation/10r_build_SPINE_TRACT_manuscript_outputs_REPAIRED_DX_v1_1.R,Archived final source,Stage 5 reporting tables
+18,05_reporting,05_reporting/18_repair_pooled_auroc.R,implementation/10s_repair_SPINE_TRACT_pooled_OOF_AUROC_REPAIRED_DX_v1.R,Archived final source,Pooled OOF AUROC correction
+19,05_reporting,05_reporting/19_numeric_auroc_qc.R,implementation/08c_repair_SPINE_TRACT_pooled_OOF_AUROC_numeric.R,Archived final source,Integer-overflow-safe numerical QC
+20,05_reporting,05_reporting/30_build_tables.R,implementation/30_build_SPINE_TRACT_final_tables_PUBLIC_REVIEWER_v4_1.R,Archived final source,Final main/eTable 1–10 builder
+PENDING,05_reporting,05_reporting/31_build_figures.R,,Not archived,Final corrected figure source not yet supplied
+PENDING,05_reporting,05_reporting/32_build_TRIPOD_AI_support.R,,Not archived,B=1000 support code pending QC
+PENDING,04_deployment,04_deployment/21_fit_deployment_models.R,,Not archived,Final all-years deployment refit not yet performed

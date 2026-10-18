@@ -1,49 +1,25 @@
 # SPINE-TRACT analytic pipeline
 
-This directory is the **manuscript/reproducibility archive**, separate from the previously published Shiny app in the repository root. The organization mirrors the TBI-TRACT research repository while preserving SPINE-TRACT-specific cohort definitions, endpoints, and limitations.
+This directory archives the executable source for the final development-informed rolling-origin 2020–2024 SPINE-TRACT manuscript analyses. The directory organization follows the TBI-TRACT pipeline: stable numbered entrypoints plus preserved, versioned implementations.
 
-## Locked study design
+## Study scope
 
-- **Source:** ACS TQP PUF, admission years 2020–2024.
-- **Intended population:** direct-presenting adults aged 18–89 years with qualifying acute thoracolumbar vertebral fracture, thoracolumbar spinal cord injury, or root/cauda injury, and an observable index-hospital trajectory.
-- **Primary cohort:** 424,017 patients; evaluation year 2024 contained 90,649 patients.
-- **Prediction time:** after initial trauma-center examination, physiologic stabilization, and diagnostic workup, before later resource receipt/disposition or operative treatment.
-- **Temporal evaluation:** train on 2020, tune on 2021, refit on 2020–2021 and evaluate 2022; then move each step forward for 2023 and 2024.
-- **Model family:** XGBoost; ridge comparator for probability/trajectory outcomes.
-- **Predictor policy:** final clinical core has 54 predictors; disposition and categorical hospital-LOS models add race, ethnicity, and payer (57). The other classification and duration models use the clinical core.
-- **Probability targets:** three-class disposition, hospital length-of-stay, ICU, and ventilation trajectories, plus recorded thoracolumbar operative treatment.
-- **Continuous targets:** Q10/Q50/Q90 hospital LOS and conditional ICU/ventilator duration.
-- **Validation:** internal forward temporal evaluation only; independent external and prospective evaluation are still needed.
+ACS Trauma Quality Programs Participant Use Files, 2020–2024; adults 18–89 years presenting directly with an acute qualifying thoracolumbar trauma phenotype and an observable index-hospital trajectory (N=424,017). Evaluation years are 2022, 2023 and 2024. The 2024 evaluation cohort contained 90,649 patients prior to outcome-specific exclusions.
 
-The surgical endpoint measures **recorded treatment receipt**, not operative indication, spinal instability, suitability for surgery, or neurological outcome. The registry does not capture CT/MRI fracture morphology, posterior ligamentous complex integrity, TLICS/AO classification, or ASIA/AIS examination. SPINE-TRACT must not be used to infer these.
+Classification targets: three-class disposition, hospital LOS, ICU and ventilation trajectories, and binary **recorded therapeutic thoracolumbar operation** (treatment receipt, not clinical indication). Duration targets: Q10/Q50/Q90 hospital LOS and conditional ICU/ventilator duration. Core and contextual policies comprise 54 and 57 predictors, respectively.
 
-## Folder layout
+Evaluation is **internal, development-informed, forward temporal** rather than independent external validation. No external/prospective validation has been performed.
 
-| Folder | Scope | Archive status |
-|---|---|---|
-| `01_cohort/` | Diagnosis/procedure phenotype, transfer exclusions, and dataset reconciliation | **647-code therapeutic operation map archived**; executable cohort source pending |
-| `02_model_development/` | Predictor adjudication, 2022–2024 rolling folds, ridge comparator, duration quantiles | Source transfer pending |
-| `03_sensitivity/` | Airway, broad phenotype, subgroups, early death, composite outcomes | Source transfer pending |
-| `04_deployment/` | Final all-years deployment model fit, encoders, and deployment checks | Not finalized; legacy app is separate |
-| `05_reporting/` | Tables, figures, TRIPOD+AI reporting, and model-independent QC | **Table builder and temporal-metric source/pooled-AUROC correction archived**; final figure source pending |
-| `implementation/` | Historical versioned executable sources | See individual file names |
+## Running
 
-Read `PIPELINE_MANIFEST.md` before treating the public archive as a complete end-to-end pipeline.
+Review [`PIPELINE_MANIFEST.csv`](PIPELINE_MANIFEST.csv) and [`SOURCE_ARCHIVE_MANIFEST.csv`](SOURCE_ARCHIVE_MANIFEST.csv) before executing. Set `SPINE_TRACT_PROJECT_DIR` to the authorized local ACS analysis workspace. Numbered entrypoints are in `01_cohort/`, `02_model_development/`, `03_sensitivity/`, and `05_reporting/`. The `implementation/` scripts are preserved without cosmetic rewriting because they are the analysis provenance sources. Several stages require frozen prior outputs, the repaired diagnosis cohort, a locally built GPU-enabled XGBoost version, and local path configuration. The archive is **not** a no-data, one-command reproduction.
 
-## Available executable source
+Workflow: cohort/endpoint audit → Stage 2 candidate construction and required diagnosis repair → repaired predictor screening/finalist lock → temporal classification/duration fits → ridge comparator and robustness → reporting, numerical QC, and publication tables. Numeric duration ties and pooled AUROC have targeted postprocessing corrections; **do not rerun expensive fitting solely to apply those corrections**.
 
-`05_reporting/30_build_tables.R` sources the final reviewer-facing Word table pipeline from `implementation/30_build_SPINE_TRACT_final_tables_PUBLIC_REVIEWER_v4_1.R`.
+## Availability limitations
 
-The implementation accepts `SPINE_TRACT_PROJECT_DIR` and discovers precomputed **local** analytic data and reporting artifacts beneath that directory. It outputs `Tables.docx`, `Supplemental.docx`, and machine-readable table sources to `outputs/SPINE_TRACT_PUBLICATION_TABLES/`. It performs no prediction-model fitting or recalibration.
+The source package includes all executable final-analysis stages recovered and reconciled from the locked code archives, with explicit source SHA-256 provenance. However, the **latest locally revised Figure 1–3/eFigure 1–6 code** and the final verified **B=1000 TRIPOD+AI subgroup reporting script** are being finalized and are not included as purportedly final in this snapshot. The independent final 2020–2024 deployment fit is pending.
 
-**Requirements:** R; `data.table`, `officer`, `flextable`, and `scales`; the frozen repaired diagnosis cohort and predictor specification, Gate 1 flow/operation summaries, Stage 5 classification/duration metrics/CIs, and optional Stage 2–4 robustness/comparator artifacts. Not all of these are publicly distributable.
+No ACS patient-level PUF files, derived patient-level datasets, individual prediction caches or record-level identifiers are distributed. A curated therapeutic ICD-10-PCS code map may be shared as non-patient-level metadata under the existing repository `reference/` directory. No usable facility keys are available, so centre-level heterogeneity was not estimated.
 
-## Provenance and next steps
-
-A vetted non-patient-level therapeutic operation map is available at [`reference/spine_operative_icd10pcs_map.csv`](reference/spine_operative_icd10pcs_map.csv), with 647 unique ICD-10-PCS codes across six categories. The Stage 5 fixed-prediction reporting implementation and the numerical pooled AUROC correction are archived in `implementation/`; do not use the original pooled AUROC output without that correction.\n\nThe diagnostic phenotype was corrected before final model development; final analyses consistently use the repaired 54/57-predictor architecture. Old random-split SPINE-TRACT and early application models must not be mixed with these estimates.
-
-The repository should eventually include checked versions of the canonical cohort, predictor adjudication, final classification/duration, ridge, robustness, reporting and figure-generation scripts; software/seed manifests; aggregate QC outputs; and, after the deployment work is frozen, the all-years model objects and encoder metadata.
-
-Do not commit patient-level data or intermediate identifiable/record-level files. There are **no usable facility keys**, so facility-specific performance heterogeneity is not estimated.
-
-Last documentation update: October 2026.
+Operation prediction is treatment receipt, not operative indication. The PUF does not include CT/MRI morphology, posterior ligamentous complex integrity, TLICS/AO classifications, or ASIA/AIS neurological examinations. The tool must not be used for stability assessment, operative selection or neurological prognosis.

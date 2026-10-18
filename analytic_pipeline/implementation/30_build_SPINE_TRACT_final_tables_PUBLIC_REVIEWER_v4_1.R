@@ -797,7 +797,8 @@ make_pub_ft <- function(
   section_rows <- sec$section_rows
 
   ft <- flextable(
-    display_dat  )
+    display_dat
+  )
 
   if (!is.null(header_labels)) {
     ft <- set_header_labels(
@@ -1596,7 +1597,8 @@ ft1 <- make_pub_ft(
   table1,
   section_col =
     "Domain",
-  note = paste(    "Values are percentages unless otherwise indicated.",
+  note = paste(
+    "Values are percentages unless otherwise indicated.",
     "Development contains 2020–2023 admissions; 2024 is the latest forward temporal evaluation cohort.",
     "Absolute standardized mean differences compare development with 2024; no large-sample P values are reported.",
     "Values with |SMD| ≥0.10 are bolded."
@@ -2395,7 +2397,8 @@ tripod_predictor_dictionary <- rbindlist(
         `Prediction-time availability` =
           "Available after initial trauma-center evaluation and diagnostic workup",
         `Missing / unknown handling` =
-          if (predictor_type(v) == "Categorical") {            "Explicit __UNKNOWN__; unseen application-time levels map to __OTHER__"
+          if (predictor_type(v) == "Categorical") {
+            "Explicit __UNKNOWN__; unseen application-time levels map to __OTHER__"
           } else {
             "Native XGBoost missing-value routing"
           },
@@ -3194,7 +3197,8 @@ if (nrow(ridge) > 0L) {
           xgb_auprc
         ),
       `Ridge AUPRC` =
-        fmt3(          ridge_auprc
+        fmt3(
+          ridge_auprc
         ),
       `XGBoost Brier` =
         fmt3(
@@ -3994,6 +3998,7 @@ etable9a_title <- if (
 } else {
   "Therapeutic thoracolumbar operation categories"
 }
+
 etable9b <- operative_rates[
   ,
   .(
@@ -4792,6 +4797,7 @@ for (nm in names(source_tables)) {
     )
   )
 }
+
 # ------------------------------------------------------------------------------
 # 17. Build polished DOCX files
 # ------------------------------------------------------------------------------

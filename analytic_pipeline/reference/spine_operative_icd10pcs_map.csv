@@ -1,0 +1,648 @@
+procedure_code,spine_operation_category
+00BX0ZZ,Excision/resection
+00BX3ZZ,Excision/resection
+00BX4ZZ,Excision/resection
+00BY0ZZ,Excision/resection
+00BY3ZZ,Excision/resection
+00BY4ZZ,Excision/resection
+00CX0ZZ,Decompression/release/extirpation
+00CX3ZZ,Decompression/release/extirpation
+00CX4ZZ,Decompression/release/extirpation
+00CY0ZZ,Decompression/release/extirpation
+00CY3ZZ,Decompression/release/extirpation
+00CY4ZZ,Decompression/release/extirpation
+00NX0ZZ,Decompression/release/extirpation
+00NX3ZZ,Decompression/release/extirpation
+00NX4ZZ,Decompression/release/extirpation
+00NY0ZZ,Decompression/release/extirpation
+00NY3ZZ,Decompression/release/extirpation
+00NY4ZZ,Decompression/release/extirpation
+00SX0ZZ,Fixation/stabilization/reposition
+00SX3ZZ,Fixation/stabilization/reposition
+00SX4ZZ,Fixation/stabilization/reposition
+00SY0ZZ,Fixation/stabilization/reposition
+00SY3ZZ,Fixation/stabilization/reposition
+00SY4ZZ,Fixation/stabilization/reposition
+01B80ZZ,Excision/resection
+01B83ZZ,Excision/resection
+01B84ZZ,Excision/resection
+01B90ZZ,Excision/resection
+01BB0ZZ,Excision/resection
+01BL0ZZ,Excision/resection
+01BL4ZZ,Excision/resection
+01BN0ZZ,Excision/resection
+01BN3ZZ,Excision/resection
+01C90ZZ,Decompression/release/extirpation
+01CB0ZZ,Decompression/release/extirpation
+01CB4ZZ,Decompression/release/extirpation
+01CL0ZZ,Decompression/release/extirpation
+01N80ZZ,Decompression/release/extirpation
+01N83ZZ,Decompression/release/extirpation
+01N84ZZ,Decompression/release/extirpation
+01N90ZZ,Decompression/release/extirpation
+01N93ZZ,Decompression/release/extirpation
+01NB0ZZ,Decompression/release/extirpation
+01NB3ZZ,Decompression/release/extirpation
+01NB4ZZ,Decompression/release/extirpation
+01NL0ZZ,Decompression/release/extirpation
+01NL4ZZ,Decompression/release/extirpation
+01NN0ZZ,Decompression/release/extirpation
+01S80ZZ,Fixation/stabilization/reposition
+01S84ZZ,Fixation/stabilization/reposition
+01SB0ZZ,Fixation/stabilization/reposition
+01U807Z,Vertebral augmentation/supplement
+01U80JZ,Vertebral augmentation/supplement
+01U80KZ,Vertebral augmentation/supplement
+01U837Z,Vertebral augmentation/supplement
+01U83JZ,Vertebral augmentation/supplement
+01U83KZ,Vertebral augmentation/supplement
+01U84JZ,Vertebral augmentation/supplement
+01U84KZ,Vertebral augmentation/supplement
+01UB07Z,Vertebral augmentation/supplement
+01UB0JZ,Vertebral augmentation/supplement
+01UB0KZ,Vertebral augmentation/supplement
+01UB37Z,Vertebral augmentation/supplement
+01UB3JZ,Vertebral augmentation/supplement
+01UB3KZ,Vertebral augmentation/supplement
+01UB4JZ,Vertebral augmentation/supplement
+01UB4KZ,Vertebral augmentation/supplement
+02BW0ZZ,Excision/resection
+02BX0ZZ,Excision/resection
+02BX4ZZ,Excision/resection
+02CW0ZZ,Decompression/release/extirpation
+02CW3ZZ,Decompression/release/extirpation
+02CW4ZZ,Decompression/release/extirpation
+02CX0ZZ,Decompression/release/extirpation
+02CX3ZZ,Decompression/release/extirpation
+02NW0ZZ,Decompression/release/extirpation
+02NW3ZZ,Decompression/release/extirpation
+02NX0ZZ,Decompression/release/extirpation
+02NX4ZZ,Decompression/release/extirpation
+02SW0ZZ,Fixation/stabilization/reposition
+02SX0ZZ,Fixation/stabilization/reposition
+02UW07Z,Vertebral augmentation/supplement
+02UW08Z,Vertebral augmentation/supplement
+02UW0JZ,Vertebral augmentation/supplement
+02UW0KZ,Vertebral augmentation/supplement
+02UW37Z,Vertebral augmentation/supplement
+02UW3JZ,Vertebral augmentation/supplement
+02UW3KZ,Vertebral augmentation/supplement
+02UW47Z,Vertebral augmentation/supplement
+02UW48Z,Vertebral augmentation/supplement
+02UW4JZ,Vertebral augmentation/supplement
+02UW4KZ,Vertebral augmentation/supplement
+02UX07Z,Vertebral augmentation/supplement
+02UX08Z,Vertebral augmentation/supplement
+02UX0JZ,Vertebral augmentation/supplement
+02UX0KZ,Vertebral augmentation/supplement
+02UX37Z,Vertebral augmentation/supplement
+02UX38Z,Vertebral augmentation/supplement
+02UX3JZ,Vertebral augmentation/supplement
+02UX3KZ,Vertebral augmentation/supplement
+02UX47Z,Vertebral augmentation/supplement
+02UX48Z,Vertebral augmentation/supplement
+02UX4JZ,Vertebral augmentation/supplement
+02UX4KZ,Vertebral augmentation/supplement
+02WW3RZ,Revision
+07BK4ZZ,Excision/resection
+07CK0ZZ,Decompression/release/extirpation
+07CK4ZZ,Decompression/release/extirpation
+0PB40ZZ,Excision/resection
+0PB43ZZ,Excision/resection
+0PB44ZZ,Excision/resection
+0PC40ZZ,Decompression/release/extirpation
+0PC43ZZ,Decompression/release/extirpation
+0PC44ZZ,Decompression/release/extirpation
+0PH404Z,Fixation/stabilization/reposition
+0PH434Z,Fixation/stabilization/reposition
+0PH444Z,Fixation/stabilization/reposition
+0PN40ZZ,Decompression/release/extirpation
+0PN43ZZ,Decompression/release/extirpation
+0PN44ZZ,Decompression/release/extirpation
+0PS403Z,Fixation/stabilization/reposition
+0PS404Z,Fixation/stabilization/reposition
+0PS40ZZ,Fixation/stabilization/reposition
+0PS434Z,Fixation/stabilization/reposition
+0PS43ZZ,Fixation/stabilization/reposition
+0PS443Z,Fixation/stabilization/reposition
+0PS444Z,Fixation/stabilization/reposition
+0PS44ZZ,Fixation/stabilization/reposition
+0PS4XZZ,Fixation/stabilization/reposition
+0PU407Z,Vertebral augmentation/supplement
+0PU40JZ,Vertebral augmentation/supplement
+0PU40KZ,Vertebral augmentation/supplement
+0PU437Z,Vertebral augmentation/supplement
+0PU43JZ,Vertebral augmentation/supplement
+0PU43KZ,Vertebral augmentation/supplement
+0PU447Z,Vertebral augmentation/supplement
+0PU44JZ,Vertebral augmentation/supplement
+0PU44KZ,Vertebral augmentation/supplement
+0PW404Z,Fixation/stabilization/reposition
+0PW407Z,Revision
+0PW40JZ,Revision
+0PW40KZ,Revision
+0PW434Z,Fixation/stabilization/reposition
+0PW43JZ,Revision
+0PW444Z,Fixation/stabilization/reposition
+0PW44JZ,Revision
+0PW44KZ,Revision
+0QB00ZZ,Excision/resection
+0QB03ZZ,Excision/resection
+0QB04ZZ,Excision/resection
+0QC00ZZ,Decompression/release/extirpation
+0QC03ZZ,Decompression/release/extirpation
+0QC04ZZ,Decompression/release/extirpation
+0QH004Z,Fixation/stabilization/reposition
+0QH005Z,Fixation/stabilization/reposition
+0QH034Z,Fixation/stabilization/reposition
+0QH035Z,Fixation/stabilization/reposition
+0QH044Z,Fixation/stabilization/reposition
+0QH045Z,Fixation/stabilization/reposition
+0QN00ZZ,Decompression/release/extirpation
+0QN03ZZ,Decompression/release/extirpation
+0QN04ZZ,Decompression/release/extirpation
+0QS003Z,Fixation/stabilization/reposition
+0QS004Z,Fixation/stabilization/reposition
+0QS00ZZ,Fixation/stabilization/reposition
+0QS034Z,Fixation/stabilization/reposition
+0QS03ZZ,Fixation/stabilization/reposition
+0QS043Z,Fixation/stabilization/reposition
+0QS044Z,Fixation/stabilization/reposition
+0QS04ZZ,Fixation/stabilization/reposition
+0QS0XZZ,Fixation/stabilization/reposition
+0QU007Z,Vertebral augmentation/supplement
+0QU00JZ,Vertebral augmentation/supplement
+0QU00KZ,Vertebral augmentation/supplement
+0QU037Z,Vertebral augmentation/supplement
+0QU03JZ,Vertebral augmentation/supplement
+0QU03KZ,Vertebral augmentation/supplement
+0QU047Z,Vertebral augmentation/supplement
+0QU04JZ,Vertebral augmentation/supplement
+0QU04KZ,Vertebral augmentation/supplement
+0QW004Z,Fixation/stabilization/reposition
+0QW007Z,Revision
+0QW00JZ,Revision
+0QW034Z,Fixation/stabilization/reposition
+0QW037Z,Revision
+0QW03JZ,Revision
+0QW044Z,Fixation/stabilization/reposition
+0RB60ZZ,Excision/resection
+0RB63ZZ,Excision/resection
+0RB64ZZ,Excision/resection
+0RB90ZZ,Excision/resection
+0RB93ZZ,Excision/resection
+0RB94ZZ,Excision/resection
+0RBA0ZZ,Excision/resection
+0RBA3ZZ,Excision/resection
+0RBA4ZZ,Excision/resection
+0RBB0ZZ,Excision/resection
+0RBB3ZZ,Excision/resection
+0RBB4ZZ,Excision/resection
+0RC60ZZ,Decompression/release/extirpation
+0RC63ZZ,Decompression/release/extirpation
+0RC64ZZ,Decompression/release/extirpation
+0RC90ZZ,Decompression/release/extirpation
+0RC93ZZ,Decompression/release/extirpation
+0RC94ZZ,Decompression/release/extirpation
+0RCA0ZZ,Decompression/release/extirpation
+0RCA3ZZ,Decompression/release/extirpation
+0RCB0ZZ,Decompression/release/extirpation
+0RCB3ZZ,Decompression/release/extirpation
+0RG6070,Fusion
+0RG6071,Fusion
+0RG607J,Fusion
+0RG60A0,Fusion
+0RG60A1,Fusion
+0RG60AJ,Fusion
+0RG60J0,Fusion
+0RG60J1,Fusion
+0RG60JJ,Fusion
+0RG60K0,Fusion
+0RG60K1,Fusion
+0RG60KJ,Fusion
+0RG60Z0,Fusion
+0RG60Z1,Fusion
+0RG60ZJ,Fusion
+0RG6370,Fusion
+0RG6371,Fusion
+0RG637J,Fusion
+0RG63A0,Fusion
+0RG63A1,Fusion
+0RG63AJ,Fusion
+0RG63J0,Fusion
+0RG63J1,Fusion
+0RG63JJ,Fusion
+0RG63K0,Fusion
+0RG63K1,Fusion
+0RG63KJ,Fusion
+0RG63Z0,Fusion
+0RG63Z1,Fusion
+0RG63ZJ,Fusion
+0RG6470,Fusion
+0RG6471,Fusion
+0RG647J,Fusion
+0RG64A0,Fusion
+0RG64A1,Fusion
+0RG64AJ,Fusion
+0RG64J0,Fusion
+0RG64J1,Fusion
+0RG64JJ,Fusion
+0RG64K0,Fusion
+0RG64K1,Fusion
+0RG64KJ,Fusion
+0RG64Z1,Fusion
+0RG64ZJ,Fusion
+0RG7070,Fusion
+0RG7071,Fusion
+0RG707J,Fusion
+0RG70A0,Fusion
+0RG70A1,Fusion
+0RG70AJ,Fusion
+0RG70J0,Fusion
+0RG70J1,Fusion
+0RG70JJ,Fusion
+0RG70K0,Fusion
+0RG70K1,Fusion
+0RG70KJ,Fusion
+0RG70Z0,Fusion
+0RG70Z1,Fusion
+0RG70ZJ,Fusion
+0RG7370,Fusion
+0RG7371,Fusion
+0RG737J,Fusion
+0RG73A0,Fusion
+0RG73A1,Fusion
+0RG73AJ,Fusion
+0RG73J0,Fusion
+0RG73J1,Fusion
+0RG73JJ,Fusion
+0RG73K0,Fusion
+0RG73K1,Fusion
+0RG73KJ,Fusion
+0RG73Z0,Fusion
+0RG73Z1,Fusion
+0RG73ZJ,Fusion
+0RG7470,Fusion
+0RG7471,Fusion
+0RG747J,Fusion
+0RG74A0,Fusion
+0RG74A1,Fusion
+0RG74AJ,Fusion
+0RG74J0,Fusion
+0RG74J1,Fusion
+0RG74JJ,Fusion
+0RG74K0,Fusion
+0RG74K1,Fusion
+0RG74KJ,Fusion
+0RG74Z1,Fusion
+0RG74ZJ,Fusion
+0RG8070,Fusion
+0RG8071,Fusion
+0RG807J,Fusion
+0RG80A0,Fusion
+0RG80A1,Fusion
+0RG80AJ,Fusion
+0RG80J0,Fusion
+0RG80J1,Fusion
+0RG80JJ,Fusion
+0RG80K0,Fusion
+0RG80K1,Fusion
+0RG80KJ,Fusion
+0RG80Z0,Fusion
+0RG80Z1,Fusion
+0RG8370,Fusion
+0RG8371,Fusion
+0RG837J,Fusion
+0RG83A0,Fusion
+0RG83A1,Fusion
+0RG83AJ,Fusion
+0RG83J1,Fusion
+0RG83JJ,Fusion
+0RG83K1,Fusion
+0RG83Z1,Fusion
+0RG8470,Fusion
+0RG8471,Fusion
+0RG84A0,Fusion
+0RG84A1,Fusion
+0RG84AJ,Fusion
+0RG84J1,Fusion
+0RG84JJ,Fusion
+0RG84K1,Fusion
+0RG84KJ,Fusion
+0RG84Z1,Fusion
+0RGA070,Fusion
+0RGA071,Fusion
+0RGA07J,Fusion
+0RGA0A0,Fusion
+0RGA0A1,Fusion
+0RGA0AJ,Fusion
+0RGA0J0,Fusion
+0RGA0J1,Fusion
+0RGA0JJ,Fusion
+0RGA0K0,Fusion
+0RGA0K1,Fusion
+0RGA0KJ,Fusion
+0RGA0Z0,Fusion
+0RGA0Z1,Fusion
+0RGA0ZJ,Fusion
+0RGA370,Fusion
+0RGA371,Fusion
+0RGA37J,Fusion
+0RGA3A0,Fusion
+0RGA3A1,Fusion
+0RGA3AJ,Fusion
+0RGA3J0,Fusion
+0RGA3J1,Fusion
+0RGA3JJ,Fusion
+0RGA3K0,Fusion
+0RGA3K1,Fusion
+0RGA3KJ,Fusion
+0RGA3Z0,Fusion
+0RGA3Z1,Fusion
+0RGA3ZJ,Fusion
+0RGA470,Fusion
+0RGA471,Fusion
+0RGA47J,Fusion
+0RGA4A0,Fusion
+0RGA4A1,Fusion
+0RGA4AJ,Fusion
+0RGA4J0,Fusion
+0RGA4J1,Fusion
+0RGA4JJ,Fusion
+0RGA4K0,Fusion
+0RGA4K1,Fusion
+0RGA4KJ,Fusion
+0RGA4Z1,Fusion
+0RGA4ZJ,Fusion
+0RH604Z,Fixation/stabilization/reposition
+0RH60CZ,Fixation/stabilization/reposition
+0RH634Z,Fixation/stabilization/reposition
+0RH63CZ,Fixation/stabilization/reposition
+0RH644Z,Fixation/stabilization/reposition
+0RH64CZ,Fixation/stabilization/reposition
+0RHA04Z,Fixation/stabilization/reposition
+0RHA0CZ,Fixation/stabilization/reposition
+0RHA34Z,Fixation/stabilization/reposition
+0RHA3CZ,Fixation/stabilization/reposition
+0RHA44Z,Fixation/stabilization/reposition
+0RHA4CZ,Fixation/stabilization/reposition
+0RN60ZZ,Decompression/release/extirpation
+0RN63ZZ,Decompression/release/extirpation
+0RN64ZZ,Decompression/release/extirpation
+0RN90ZZ,Decompression/release/extirpation
+0RN94ZZ,Decompression/release/extirpation
+0RNA0ZZ,Decompression/release/extirpation
+0RNA3ZZ,Decompression/release/extirpation
+0RNB0ZZ,Decompression/release/extirpation
+0RNB3ZZ,Decompression/release/extirpation
+0RS604Z,Fixation/stabilization/reposition
+0RS60ZZ,Fixation/stabilization/reposition
+0RS634Z,Fixation/stabilization/reposition
+0RS63ZZ,Fixation/stabilization/reposition
+0RS644Z,Fixation/stabilization/reposition
+0RS64ZZ,Fixation/stabilization/reposition
+0RS6X4Z,Fixation/stabilization/reposition
+0RS6XZZ,Fixation/stabilization/reposition
+0RSA04Z,Fixation/stabilization/reposition
+0RSA0ZZ,Fixation/stabilization/reposition
+0RSA34Z,Fixation/stabilization/reposition
+0RSA3ZZ,Fixation/stabilization/reposition
+0RSA44Z,Fixation/stabilization/reposition
+0RSA4ZZ,Fixation/stabilization/reposition
+0RSAX4Z,Fixation/stabilization/reposition
+0RSAXZZ,Fixation/stabilization/reposition
+0RT90ZZ,Excision/resection
+0RTB0ZZ,Excision/resection
+0RU607Z,Vertebral augmentation/supplement
+0RU60JZ,Vertebral augmentation/supplement
+0RU60KZ,Vertebral augmentation/supplement
+0RU637Z,Vertebral augmentation/supplement
+0RU63JZ,Vertebral augmentation/supplement
+0RU63KZ,Vertebral augmentation/supplement
+0RU647Z,Vertebral augmentation/supplement
+0RU64JZ,Vertebral augmentation/supplement
+0RU64KZ,Vertebral augmentation/supplement
+0RU907Z,Vertebral augmentation/supplement
+0RU90JZ,Vertebral augmentation/supplement
+0RU90KZ,Vertebral augmentation/supplement
+0RU93JZ,Vertebral augmentation/supplement
+0RU93KZ,Vertebral augmentation/supplement
+0RU947Z,Vertebral augmentation/supplement
+0RU94JZ,Vertebral augmentation/supplement
+0RU94KZ,Vertebral augmentation/supplement
+0RUA07Z,Vertebral augmentation/supplement
+0RUA0JZ,Vertebral augmentation/supplement
+0RUA0KZ,Vertebral augmentation/supplement
+0RUA37Z,Vertebral augmentation/supplement
+0RUA3JZ,Vertebral augmentation/supplement
+0RUA3KZ,Vertebral augmentation/supplement
+0RUA47Z,Vertebral augmentation/supplement
+0RUA4JZ,Vertebral augmentation/supplement
+0RUB07Z,Vertebral augmentation/supplement
+0RUB0JZ,Vertebral augmentation/supplement
+0RUB0KZ,Vertebral augmentation/supplement
+0RUB3JZ,Vertebral augmentation/supplement
+0RUB4JZ,Vertebral augmentation/supplement
+0RW604Z,Fixation/stabilization/reposition
+0RW607Z,Revision
+0RW60AZ,Fusion
+0RW60JZ,Revision
+0RW60KZ,Revision
+0RW634Z,Fixation/stabilization/reposition
+0RW63JZ,Revision
+0RW644Z,Fixation/stabilization/reposition
+0RW93JZ,Revision
+0RWA04Z,Fixation/stabilization/reposition
+0RWA07Z,Revision
+0RWA0AZ,Fusion
+0RWA0JZ,Revision
+0RWA0KZ,Revision
+0RWA3AZ,Fusion
+0RWA3JZ,Revision
+0RWA3KZ,Revision
+0RWA44Z,Fixation/stabilization/reposition
+0RWAX4Z,Fixation/stabilization/reposition
+0RWB0JZ,Revision
+0RWB0KZ,Revision
+0RWB3JZ,Revision
+0SB00ZZ,Excision/resection
+0SB03ZZ,Excision/resection
+0SB04ZZ,Excision/resection
+0SB20ZZ,Excision/resection
+0SB23ZZ,Excision/resection
+0SB24ZZ,Excision/resection
+0SC00ZZ,Decompression/release/extirpation
+0SC03ZZ,Decompression/release/extirpation
+0SC04ZZ,Decompression/release/extirpation
+0SC20ZZ,Decompression/release/extirpation
+0SC23ZZ,Decompression/release/extirpation
+0SC24ZZ,Decompression/release/extirpation
+0SG0070,Fusion
+0SG0071,Fusion
+0SG007J,Fusion
+0SG00A0,Fusion
+0SG00A1,Fusion
+0SG00AJ,Fusion
+0SG00J0,Fusion
+0SG00J1,Fusion
+0SG00JJ,Fusion
+0SG00K0,Fusion
+0SG00K1,Fusion
+0SG00KJ,Fusion
+0SG00Z0,Fusion
+0SG00Z1,Fusion
+0SG00ZJ,Fusion
+0SG0370,Fusion
+0SG0371,Fusion
+0SG037J,Fusion
+0SG03A0,Fusion
+0SG03A1,Fusion
+0SG03AJ,Fusion
+0SG03J0,Fusion
+0SG03J1,Fusion
+0SG03JJ,Fusion
+0SG03K0,Fusion
+0SG03K1,Fusion
+0SG03KJ,Fusion
+0SG03Z0,Fusion
+0SG03Z1,Fusion
+0SG03ZJ,Fusion
+0SG0470,Fusion
+0SG0471,Fusion
+0SG047J,Fusion
+0SG04A0,Fusion
+0SG04A1,Fusion
+0SG04AJ,Fusion
+0SG04J0,Fusion
+0SG04J1,Fusion
+0SG04JJ,Fusion
+0SG04K1,Fusion
+0SG04KJ,Fusion
+0SG04Z1,Fusion
+0SG04ZJ,Fusion
+0SG1070,Fusion
+0SG1071,Fusion
+0SG107J,Fusion
+0SG10A0,Fusion
+0SG10A1,Fusion
+0SG10AJ,Fusion
+0SG10J0,Fusion
+0SG10J1,Fusion
+0SG10JJ,Fusion
+0SG10K0,Fusion
+0SG10K1,Fusion
+0SG10KJ,Fusion
+0SG10Z0,Fusion
+0SG10Z1,Fusion
+0SG10ZJ,Fusion
+0SG1370,Fusion
+0SG1371,Fusion
+0SG137J,Fusion
+0SG13A0,Fusion
+0SG13A1,Fusion
+0SG13AJ,Fusion
+0SG13J0,Fusion
+0SG13J1,Fusion
+0SG13JJ,Fusion
+0SG13K0,Fusion
+0SG13K1,Fusion
+0SG13KJ,Fusion
+0SG13Z0,Fusion
+0SG13Z1,Fusion
+0SG13ZJ,Fusion
+0SG1470,Fusion
+0SG1471,Fusion
+0SG147J,Fusion
+0SG14A0,Fusion
+0SG14A1,Fusion
+0SG14AJ,Fusion
+0SG14J0,Fusion
+0SG14J1,Fusion
+0SG14JJ,Fusion
+0SG14K0,Fusion
+0SG14K1,Fusion
+0SG14KJ,Fusion
+0SG14Z0,Fusion
+0SG14Z1,Fusion
+0SG14ZJ,Fusion
+0SH004Z,Fixation/stabilization/reposition
+0SH00CZ,Fixation/stabilization/reposition
+0SH034Z,Fixation/stabilization/reposition
+0SH03CZ,Fixation/stabilization/reposition
+0SH044Z,Fixation/stabilization/reposition
+0SH04CZ,Fixation/stabilization/reposition
+0SN00ZZ,Decompression/release/extirpation
+0SN03ZZ,Decompression/release/extirpation
+0SN04ZZ,Decompression/release/extirpation
+0SN0XZZ,Decompression/release/extirpation
+0SN20ZZ,Decompression/release/extirpation
+0SN23ZZ,Decompression/release/extirpation
+0SN24ZZ,Decompression/release/extirpation
+0SS004Z,Fixation/stabilization/reposition
+0SS00ZZ,Fixation/stabilization/reposition
+0SS034Z,Fixation/stabilization/reposition
+0SS03ZZ,Fixation/stabilization/reposition
+0SS044Z,Fixation/stabilization/reposition
+0SS04ZZ,Fixation/stabilization/reposition
+0SS0X4Z,Fixation/stabilization/reposition
+0SS0XZZ,Fixation/stabilization/reposition
+0ST20ZZ,Excision/resection
+0SU007Z,Vertebral augmentation/supplement
+0SU00JZ,Vertebral augmentation/supplement
+0SU00KZ,Vertebral augmentation/supplement
+0SU037Z,Vertebral augmentation/supplement
+0SU03JZ,Vertebral augmentation/supplement
+0SU03KZ,Vertebral augmentation/supplement
+0SU047Z,Vertebral augmentation/supplement
+0SU04JZ,Vertebral augmentation/supplement
+0SU04KZ,Vertebral augmentation/supplement
+0SU207Z,Vertebral augmentation/supplement
+0SU20JZ,Vertebral augmentation/supplement
+0SU20KZ,Vertebral augmentation/supplement
+0SU237Z,Vertebral augmentation/supplement
+0SU23JZ,Vertebral augmentation/supplement
+0SU23KZ,Vertebral augmentation/supplement
+0SU24JZ,Vertebral augmentation/supplement
+0SU24KZ,Vertebral augmentation/supplement
+0SW004Z,Fixation/stabilization/reposition
+0SW007Z,Revision
+0SW00AZ,Fusion
+0SW00JZ,Revision
+0SW00KZ,Revision
+0SW034Z,Fixation/stabilization/reposition
+0SW03AZ,Fusion
+0SW207Z,Revision
+7W02X1Z,Decompression/release/extirpation
+7W03X1Z,Decompression/release/extirpation
+XNS0032,Fixation/stabilization/reposition
+XNS00C7,Fixation/stabilization/reposition
+XNS0332,Fixation/stabilization/reposition
+XNS03C7,Fixation/stabilization/reposition
+XNS4032,Fixation/stabilization/reposition
+XNS40C7,Fixation/stabilization/reposition
+XNS4332,Fixation/stabilization/reposition
+XNS43C7,Fixation/stabilization/reposition
+XNU0356,Vertebral augmentation/supplement
+XNU4356,Vertebral augmentation/supplement
+XRG6092,Fusion
+XRG60F3,Fusion
+XRG7092,Fusion
+XRG70F3,Fusion
+XRG8092,Fusion
+XRG80F3,Fusion
+XRGA092,Fusion
+XRGA0EA,Fusion
+XRGA0F3,Fusion
+XRGA0R7,Fusion
+XRGA3R7,Fusion
+XRGA4R7,Fusion
+XRGB092,Fusion
+XRGB0F3,Fusion
+XRGB0R7,Fusion
+XRGB3R7,Fusion
+XRGB4R7,Fusion
+XRGC092,Fusion
+XRGC0EA,Fusion
+XRGC0F3,Fusion
+XRGC0R7,Fusion
+XRGC3R7,Fusion

@@ -21,11 +21,11 @@ The surgical endpoint measures **recorded treatment receipt**, not operative ind
 
 | Folder | Scope | Archive status |
 |---|---|---|
-| `01_cohort/` | Diagnosis/procedure phenotype, transfer exclusions, and dataset reconciliation | Source transfer pending |
+| `01_cohort/` | Diagnosis/procedure phenotype, transfer exclusions, and dataset reconciliation | **647-code therapeutic operation map archived**; executable cohort source pending |
 | `02_model_development/` | Predictor adjudication, 2022–2024 rolling folds, ridge comparator, duration quantiles | Source transfer pending |
 | `03_sensitivity/` | Airway, broad phenotype, subgroups, early death, composite outcomes | Source transfer pending |
 | `04_deployment/` | Final all-years deployment model fit, encoders, and deployment checks | Not finalized; legacy app is separate |
-| `05_reporting/` | Tables, figures, TRIPOD+AI reporting, and model-independent QC | **Table builder archived**; remaining sources pending |
+| `05_reporting/` | Tables, figures, TRIPOD+AI reporting, and model-independent QC | **Table builder and temporal-metric source/pooled-AUROC correction archived**; final figure source pending |
 | `implementation/` | Historical versioned executable sources | See individual file names |
 
 Read `PIPELINE_MANIFEST.md` before treating the public archive as a complete end-to-end pipeline.
@@ -40,7 +40,7 @@ The implementation accepts `SPINE_TRACT_PROJECT_DIR` and discovers precomputed *
 
 ## Provenance and next steps
 
-The diagnostic phenotype was corrected before final model development; final analyses consistently use the repaired 54/57-predictor architecture. Old random-split SPINE-TRACT and early application models must not be mixed with these estimates.
+A vetted non-patient-level therapeutic operation map is available at [`reference/spine_operative_icd10pcs_map.csv`](reference/spine_operative_icd10pcs_map.csv), with 647 unique ICD-10-PCS codes across six categories. The Stage 5 fixed-prediction reporting implementation and the numerical pooled AUROC correction are archived in `implementation/`; do not use the original pooled AUROC output without that correction.\n\nThe diagnostic phenotype was corrected before final model development; final analyses consistently use the repaired 54/57-predictor architecture. Old random-split SPINE-TRACT and early application models must not be mixed with these estimates.
 
 The repository should eventually include checked versions of the canonical cohort, predictor adjudication, final classification/duration, ridge, robustness, reporting and figure-generation scripts; software/seed manifests; aggregate QC outputs; and, after the deployment work is frozen, the all-years model objects and encoder metadata.
 

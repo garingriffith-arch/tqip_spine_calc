@@ -1,23 +1,52 @@
-# R session files
+# SPINE-TRACT research repository: no ACS individual-level data
 .Rhistory
 .RData
 .Rproj.user/
-
-# OS/editor files
+.Renviron
+.env
+.env.*
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
-
-# Logs/cache
 *.log
+*.tmp
+*.bak
 rsconnect/
 
-# Avoid accidentally committing raw analysis artifacts.
-# The two locked app objects below are intentionally allowed.
+# Restricted source data and patient-level/derived modeling outputs
+data/raw/
+data/derived/
+output/
+outputs/
+cache/
+checkpoints/
+*.parquet
+*.feather
+*.fst
+*.xlsx
+*.xls
+*.zip
+
+# Patient-level and intermediate R objects are not publishable by default
 *.rds
+*.RData
+*.rda
+*.qs
+
+# Preserve previously committed legacy app artifacts.
+# These are NOT the final revised-manuscript deployment models.
 !data/model_bundle.rds
 !data/predictor_metadata.rds
 
-# Keep deployment manifest trackable if you choose to commit it.
+# Archive aggregate CSVs only by explicit review/allow-list
+*.csv
+!analytic_pipeline/PIPELINE_MANIFEST.csv
+!analytic_pipeline/reference/
+!analytic_pipeline/reference/spine_operative_icd10pcs_map.csv
+
+# Application deployment manifest retained
 !manifest.json
+
+# Local workstation configuration is not versioned
+R/00_config.R

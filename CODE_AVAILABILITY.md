@@ -6,7 +6,7 @@ SPINE-TRACT is a prediction-model research project using the American College of
 
 The repository now separates the **manuscript-facing rolling temporal study** from the **legacy Shiny calculator**. The current reviewer-facing table builder is archived in `analytic_pipeline/implementation/` and has a numbered reporting entry point.
 
-The remaining finalized model-development, duration-quantile, sensitivity, and figure scripts have **not yet been archived in this GitHub repository**. They should only be added after their final versions are reconciled with the locked study artifacts. The absence of a file must not be interpreted as evidence that an analysis was not performed; it means the public code archive is incomplete. See `analytic_pipeline/PIPELINE_MANIFEST.md`.
+The frozen 647-code non-patient-level operative-treatment map and the Stage 5 fixed-prediction metric-postprocessing source (together with its pooled-AUROC numeric correction) are also archived under `analytic_pipeline/`.\n\nThe remaining finalized model-development, duration-quantile, sensitivity, and figure scripts have **not yet been archived in this GitHub repository**. They should only be added after their final versions are reconciled with the locked study artifacts. The absence of a file must not be interpreted as evidence that an analysis was not performed; it means the public code archive is incomplete. See `analytic_pipeline/PIPELINE_MANIFEST.md`.
 
 ## Participant-level data
 

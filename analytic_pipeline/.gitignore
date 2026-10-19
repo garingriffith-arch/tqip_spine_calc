@@ -21,5 +21,3 @@
 00_config.R
 .Renviron
 .env
-# Existing legacy application RDS files are intentionally not removed from git by this update.
-# Explicitly review any intended final deployment-model objects before force-adding.

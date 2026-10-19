@@ -1,7 +1,19 @@
-# Model artifacts and deployment status
+# SPINE-TRACT application model artifacts
 
-The repository-root `app.R` currently reads `data/model_bundle.rds` and `data/predictor_metadata.rds`. These objects belong to a **legacy, superseded** SPINE-TRACT model generation. They must not be presented as the revised 2020–2024 manuscript models or used to interpret the published temporal performance estimates.
+The active `app.R` loads the **final repaired-diagnosis 2020–2024 deployment models** in `deployment_2020_2024/`. The superseded legacy `model_bundle.rds` and `predictor_metadata.rds` have been removed from the current repository tree.
 
-The final revised deployment fit has not been completed. It must produce 14 XGBoost model objects: five classifiers (four multiclass trajectories and recorded thoracolumbar operation) and nine duration-quantile models (Q10/Q50/Q90 for each of three duration targets), with endpoint-specific encoders and provenance. The intended destination is `data/deployment_2020_2024/` after training and inference validation. See [deployment status](../analytic_pipeline/04_deployment/README.md).
+`deployment_2020_2024/models/`: five classification model JSONs and three joint-quantile duration model JSONs.
 
-Do not commit ACS patient-level data, individual predictions, record identifiers, or restricted derivatives to this repository.
+`deployment_2020_2024/encoders/`: matching endpoint-specific predictor/encoder metadata RDS files. The training feature order and categorical unknown/unseen-level policy are part of each encoder.
+
+`deployment_2020_2024/artifact_manifest.csv`: training counts, years, boosting rounds, internal-CV settings, serialized prediction parity, file sizes and SHA-256 checksums.
+
+Verify these files from the repository root:
+
+```sh
+Rscript analytic_pipeline/verify_deployment_artifacts.R
+```
+
+The PUF source data, patient-level derived datasets, row-wise predictions, encounter IDs and QC caches are excluded. The publicly tracked deployment objects must not be mistaken for patient-level ACS records. Model code and redistribution are subject to applicable ACS/institutional terms.
+
+See [deployment instructions](../README_DEPLOYMENT.md) and the [analysis pipeline](../analytic_pipeline/README.md).

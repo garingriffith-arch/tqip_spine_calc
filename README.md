@@ -2,39 +2,68 @@
 
 **Trauma Resource and Acute Care Trajectory Calculator for Adults With Acute Thoracolumbar Spine Trauma**
 
-SPINE-TRACT is a multi-output prediction-model research project evaluating early inpatient trajectories after acute thoracolumbar spine trauma. The [analysis pipeline](analytic_pipeline/README.md) is organized to parallel the TBI-TRACT publication repository.
+**[Open the SPINE-TRACT calculator](https://01a154f9-e4de-f916-8a37-2663ed8ed9d1.share.connect.posit.cloud)**
 
-The revised analysis uses ACS Trauma Quality Programs Participant Use Files (2020–2024) and a narrow cohort of 424,017 direct-presenting adults aged 18–89 years with an observable index-hospital trajectory. Evaluation used temporally ordered 2022–2024 cohorts (2024 N=90,649 before endpoint-specific missingness). This is **development-informed internal forward temporal evaluation**, not external validation.
+SPINE-TRACT estimates inpatient trajectories and recorded resource use after the initial assessment of adults with acute thoracolumbar spine trauma. This repository contains the Shiny application, its trained deployment models and preprocessing encoders, and the archived R analysis pipeline.
 
-### Selected 2024 discrimination
+## Cohort and evaluation
 
-| Output | AUROC |
-|---|---:|
-| Post-acute disposition | 0.776 |
-| Death/hospice | 0.925 |
-| Any ICU | 0.874 |
-| ICU ≥8 days | 0.898 |
-| Any ventilation | 0.936 |
-| Ventilation ≥8 days | 0.932 |
+The study uses the American College of Surgeons Trauma Quality Programs Participant Use Files, 2020–2024. The primary cohort includes **424,017 direct-presenting adults aged 18–89 years** with a qualifying acute thoracolumbar injury and an observable index-hospital trajectory.
+
+Models were developed and evaluated using rolling-origin temporal splits with evaluation years **2022, 2023, and 2024**. The 2024 evaluation cohort included **90,649 patients** before endpoint-specific exclusions. The analysis represents **development-informed internal temporal evaluation**, not independent external or prospective validation.
+
+| 2024 classification output | AUROC |
+| --- | ---: |
+| Post-acute facility disposition | 0.776 |
+| Death or hospice disposition | 0.925 |
+| Any ICU use | 0.874 |
+| ICU stay ≥8 days | 0.898 |
+| Any mechanical ventilation | 0.936 |
+| Mechanical ventilation ≥8 days | 0.932 |
 | Hospital LOS ≥20 days | 0.854 |
 | Recorded thoracolumbar operation | 0.761 |
 
-The median-prediction mean absolute error in 2024 was 4.82 days for hospital LOS, 4.21 days for ICU LOS conditional on ICU use, and 5.46 days for ventilator duration conditional on ventilation. Estimated Q10–Q90 ranges are not guaranteed 80% prediction intervals.
+For 2024, median-prediction mean absolute error was **4.82 days** for hospital length of stay (LOS), **4.21 days** for ICU LOS conditional on ICU use, and **5.46 days** for ventilator days conditional on ventilation. The model-estimated Q10–Q90 ranges are not guaranteed 80% prediction intervals.
 
-### Repository organization
+## Models
 
-- `analytic_pipeline/01_cohort/`: cohort construction, procedure phenotype, diagnosis QC
-- `analytic_pipeline/02_model_development/`: temporal predictor adjudication, classification, duration quantiles, ridge comparator
-- `analytic_pipeline/03_sensitivity/`: clinical, airway, phenotype and composite sensitivities
-- `analytic_pipeline/05_reporting/`: fixed-prediction performance, calibration, main/supplemental tables
-- `analytic_pipeline/implementation/`: preserved versioned source code
-- `analytic_pipeline/04_deployment/`: final deployment artifacts and policy documentation (all-years fit **pending**)
-- `app.R` and `data/model_bundle.rds`: **legacy** calculator—do not conflate with revised manuscript models
+The locked predictor policy consists of **54 clinical predictors**, with race, ethnicity, and payer added only for discharge disposition and categorical hospital LOS (**57 contextual predictors**). The deployment build fits **eight XGBoost models** on the eligible 2020–2024 cohort:
 
-Details and run order: [`analytic_pipeline/README.md`](analytic_pipeline/README.md). File-level provenance and checksums: [`analytic_pipeline/SOURCE_ARCHIVE_MANIFEST.csv`](analytic_pipeline/SOURCE_ARCHIVE_MANIFEST.csv).
+- Five classifiers: three-class discharge disposition; three-class hospital LOS, ICU, and ventilation trajectories; and binary recorded thoracolumbar operation.
+- Three joint-quantile duration models: Q10/Q50/Q90 for hospital LOS, ICU LOS conditional on ICU use, and ventilator days conditional on ventilation.
 
-### Interpretation and availability
+The all-years deployment models are distinct from the earlier rolling-origin evaluation models. Three duration models use Python XGBoost 3.2.0 for joint-quantile inference; the classifiers use R XGBoost.
 
-SPINE-TRACT predicts **recorded operative treatment receipt**, not operative indication. The PUF does not provide CT/MRI fracture morphology, posterior ligamentous complex integrity, TLICS/AO Spine classifications, or ASIA/AIS neurologic examination. It is not designed to assess spinal stability, choose surgery, or predict neurological recovery. Independent external and prospective validation are pending.
+## Repository layout
 
-Patient-level ACS TQP PUF data, derived patient-level records, and prediction caches are not included. Access to those source data is separately governed by ACS terms. All-years deployment models and revised calculator integration are forthcoming and will be distinguished explicitly from the legacy Shiny app.
+| Path | Contents |
+| --- | --- |
+| `app.R`, `app_core.R` | Shiny entrypoint, model inference, clinical inputs, output presentation |
+| `data/deployment_2020_2024/` | Eight model JSONs, eight encoder RDSs, SHA-256 artifact manifest |
+| `test_app_contract.R` | Structural tests for all eight inference interfaces |
+| `analytic_pipeline/` | Numbered source entrypoints, archived implementations, provenance and integrity checks |
+| `README_DEPLOYMENT.md` | Local app testing and Posit Connect Cloud publishing |
+| `www/ohsu_logo.png` | Application logo |
+
+The [analysis pipeline documentation](analytic_pipeline/README.md) gives execution order, inputs, outcome definitions, model-fit dependencies and the archive's remaining limits.
+
+From the repository root:
+
+```sh
+Rscript analytic_pipeline/verify_archive.R
+Rscript analytic_pipeline/verify_deployment_artifacts.R
+```
+
+These checks verify archived source integrity and deployment artifact checksums; they do **not** run the analyses or establish external validation.
+
+## Clinical interpretation
+
+The operative endpoint predicts **recorded therapeutic thoracolumbar operation**, not surgical indication or treatment appropriateness. ACS registry data do not encode fracture morphology from CT/MRI, posterior ligamentous complex integrity, TLICS/AO classification, or ASIA/AIS neurological examination. SPINE-TRACT does not assess spinal stability, select surgery, or predict neurological recovery.
+
+Outputs are research-derived estimates for counseling and anticipatory resource planning, not stand-alone treatment recommendations. Social-context predictors can reflect unequal care pathways and should not be interpreted as biological effects or used to ration care. External and prospective validation remain outstanding.
+
+## Data and code availability
+
+The licensed ACS PUF source files, patient-level derived records, encounter identifiers and individual prediction caches are **not redistributed**. The public deployment model objects and preprocessing metadata are supplied under `data/deployment_2020_2024/`; sharing is subject to applicable ACS and institutional terms.
+
+The first 20 analysis sources, the completed all-years deployment source (step 21), and the fixed-prediction eTable 11 source (step 32) are archived. The final figure-generation script for Figure 1–3 and eFigures 1–6 is **not yet archived**. See [code availability](CODE_AVAILABILITY.md) for exact limits. A clean clone cannot reproduce the patient-level analyses without licensed source data and required intermediate files.

@@ -81,6 +81,25 @@ if (!identical(version_str, "3.2.0")) {
        version_str, call. = FALSE)
 }
 
+# Local research uses a custom 1.7.2.1 GPU package that is NOT on CRAN.
+# The hosted app only needs the published CPU-capable CRAN 3.2.1.1 for
+# inference. Never overwrite the known-good Git manifest with metadata
+# from a custom local build. Use a separate clean R library to regenerate.
+r_xgb_ver <- as.character(utils::packageVersion("xgboost"))
+r_xgb_desc <- utils::packageDescription("xgboost")
+if (!identical(r_xgb_ver, "3.2.1.1") ||
+    identical(r_xgb_desc[["RemoteType"]], "local") ||
+    grepl("xgboost_r_gpu_win64", if (is.null(r_xgb_desc[["RemoteUrl"]])) "" else r_xgb_desc[["RemoteUrl"]], fixed = TRUE)) {
+  stop(
+    "Manifest generation blocked: this R session uses xgboost ",
+    r_xgb_ver, " from ", if (is.null(r_xgb_desc[["RemoteType"]])) "unknown" else r_xgb_desc[["RemoteType"]],
+    ". The deployment manifest already pins official CRAN xgboost 3.2.1.1. ",
+    "Do not rerun writeManifest() from your custom GPU R environment. ",
+    "For future regeneration, use an isolated R library containing CRAN ",
+    "xgboost 3.2.1.1.", call. = FALSE
+  )
+}
+
 cat("Generating new manifest.json ...\n")
 # appFiles is intentional: prevents accidentally including source ACS PUFs,
 # analysis caches, or other unreviewed files in deployment metadata.

@@ -19,6 +19,6 @@ step,stage,entrypoint,implementation,status,relevance
 18,05_reporting,05_reporting/18_repair_pooled_auroc.R,implementation/10s_repair_SPINE_TRACT_pooled_OOF_AUROC_REPAIRED_DX_v1.R,Archived final source,Pooled OOF AUROC correction
 19,05_reporting,05_reporting/19_numeric_auroc_qc.R,implementation/08c_repair_SPINE_TRACT_pooled_OOF_AUROC_numeric.R,Archived final source,Integer-overflow-safe numerical QC
 20,05_reporting,05_reporting/30_build_tables.R,implementation/30_build_SPINE_TRACT_final_tables_PUBLIC_REVIEWER_v4_1.R,Archived final source,Final main/eTable 1–10 builder
-PENDING,05_reporting,05_reporting/31_build_figures.R,,Not archived,Final corrected figure source not yet supplied
 21,04_deployment,04_deployment/21_fit_deployment_models.R,implementation/21_build_SPINE_TRACT_deployment_2020_2024_CVFIX_v2.R,Archived deployment source,Full 2020-2024 refit and artifact export; internal CV for boosting rounds
+PENDING,05_reporting,05_reporting/31_build_figures.R,,Not archived,Final corrected figure source not yet supplied
 32,05_reporting,05_reporting/32_build_TRIPOD_AI_support.R,implementation/32_build_SPINE_TRACT_eTable11.R,Archived executed reporting source,Fixed-prediction 2024 subgroup bootstrap B=1000; no refits

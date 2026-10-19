@@ -26,8 +26,15 @@ source("test_app_contract.R")
 shiny::runApp(".", launch.browser = TRUE)
 ```
 
-To produce the deployable R/Python dependency manifest (without including
-machine-specific Python paths), run:
+The checked-in `manifest.json` now pins the official CRAN R XGBoost 3.2.1.1
+rather than the custom GPU build from the local research workstation. Do not
+regenerate this manifest with that GPU build: it advertises a non-CRAN
+version 1.7.2.1 and fails when the cloud tries to install it. The existing
+manifest is ready for Connect Cloud to attempt restoration.
+
+If other dependencies change later, regenerate the manifest **only from a clean
+R library with official CRAN XGBoost 3.2.1.1 installed**. In that environment,
+to produce the deployable R/Python dependency manifest, run:
 
 ```r
 source("prepare_connect_cloud_manifest.R")

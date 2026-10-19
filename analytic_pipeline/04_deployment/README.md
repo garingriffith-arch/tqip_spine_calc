@@ -1,6 +1,6 @@
 # Final SPINE-TRACT deployment models
 
-The completed Stage 21 builder is `21_fit_deployment_models.R`, with its corresponding archived source under `../implementation/21_build_SPINE_TRACT_deployment_2020_2024_CVFIX_v2.R`.
+The completed Stage 21 builder is represented by `21_fit_deployment_models.R`, with a corrected CV-parser source under `../implementation/21_build_SPINE_TRACT_deployment_2020_2024_CVFIX_v2.R`. **Source provenance limit:** the deployment artifact manifest records `source_file_md5=64cc76848eeeef02fec044f7345ee464`; the available corrected builder copy does not have that MD5. The source is included as an executable reference, not represented as a verified byte-identical copy of the exact file used for the deployed fit.
 
 The deployment procedure retains each endpoint's repaired-diagnosis predictor policy and the 2024-selected structural configuration, uses three-fold **internal CV only to select boosting rounds**, then fits eligible 2020–2024 data. This is not independent evaluation or an update to the manuscript's rolling-origin performance metrics.
 

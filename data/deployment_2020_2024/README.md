@@ -5,7 +5,7 @@ This feature branch stages a replacement Shiny calculator using the repaired-DX
 application entrypoint lives at `app.R`, and model loading / UI / prediction
 logic lives at `app_core.R`.
 
-## Required runtime artifacts (not stored in this directory until reviewed)
+## Required runtime artifacts (local/private only; never committed to public GitHub)
 
 Eight XGBoost model JSON files under `data/deployment_2020_2024/models/`
 and eight matching encoder RDS files under
@@ -19,9 +19,11 @@ via `reticulate`. Do not substitute the original legacy
 
 ## Safety and publishing
 
-- The source repository is **public**. Confirm the applicable ACS
-  data-use terms permit public distribution of the derived model artifacts
-  before committing any JSON / RDS model assets.
+- The source repository is **public**. Final JSON models, RDS encoders and
+  artifact manifests are permanently excluded from public Git commits.
+  Provision them privately to the local application or authorized hosting runtime.
+- Git ignore applies only to Git; it does not prevent separately bundled model
+  files from being copied to an application host or otherwise served.
 - Never commit patient-level ACS PUFs, row-wise predictions, record
   identifiers, or derived patient-level data.
 - The main branch and legacy app are intentionally unchanged while

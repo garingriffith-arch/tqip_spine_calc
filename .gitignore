@@ -52,10 +52,12 @@ checkpoints/
 # Local workstation configuration is not versioned
 R/00_config.R
 
-# Final 2020–2024 deployment artifacts: LOCAL/PRIVATE ONLY.
-# GitHub stores application code; these models/encoders are NOT committed.
-# Preserve tracked data/deployment_2020_2024/README.md.
-data/deployment_2020_2024/models/
-data/deployment_2020_2024/encoders/
-data/deployment_2020_2024/artifact_manifest.csv
+# Explicitly publish ONLY final, reviewed 2020–2024 deployment models,
+# encoders, and artifact provenance (analogous to the TBI-TRACT repository).
+# Never commit source ACS PUFs, row-wise predictions, record IDs or QC extracts.
+!data/deployment_2020_2024/models/
+!data/deployment_2020_2024/models/*.json
+!data/deployment_2020_2024/encoders/
+!data/deployment_2020_2024/encoders/*_encoder.rds
+!data/deployment_2020_2024/artifact_manifest.csv
 data/deployment_2020_2024/qc/

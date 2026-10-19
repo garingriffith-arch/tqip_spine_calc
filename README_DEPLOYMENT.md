@@ -47,7 +47,7 @@ Create the environment separately if necessary; do not assume an existing server
 
 ## GitHub and data governance
 
-Do not replace or remove the legacy `data/model_bundle.rds` as a shortcut. Add the new deployment tree and intentionally redirect `app.R`/`app_core.R` to it. The existing `.gitignore` excludes all new `.rds` files; stage explicitly reviewed encoder files using a narrow allow-list or `git add -f` only after sharing permissions are confirmed. NEVER publish ACS PUF rows, prediction caches, direct identifiers or restricted derivatives. Confirm ACS-derived model sharing terms before public commits.
+Do not replace or remove the legacy `data/model_bundle.rds` as a shortcut. The application reads the final deployment model tree locally at `data/deployment_2020_2024/` or from a host-local directory supplied through `SPINE_TRACT_APP_ARTIFACT_DIR`. All new model JSON files, encoder RDS files and the artifact manifest are intentionally ignored by Git and MUST NOT be committed to this public repository. The repository alone therefore cannot run the Shiny app; private deployment requires separately provisioning these artifacts onto the application host with appropriate access controls. Do not use `git add -f` for these files. Git ignore does not protect files separately uploaded to a web host or included in an application bundle; review those deployment pathways independently. NEVER publish ACS PUF rows, prediction caches, direct identifiers or restricted derivatives.
 
 ## Features mirrored from TBI-TRACT
 

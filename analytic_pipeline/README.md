@@ -44,7 +44,7 @@ Some stages additionally require the source ACS annual PUFs, phenotype mappings,
 | 21 | [04_deployment](04_deployment/) | Final full-cohort deployment fits; internal CV selects boosting rounds only |
 | 32 | [05_reporting](05_reporting/) | eTable 11 fixed-prediction 2024 subgroup bootstrap (B=1,000) |
 
-**Unarchived:** The final code used to generate Figure 1–3 and eFigures 1–6 (pipeline step 31). It is listed as pending rather than reconstructed without evidence. The figures can be examined in the existing manuscript package, but the last plotting revision cannot presently be reproduced from this GitHub source alone.
+**Unarchived:** The final code used to generate Figure 1–3 and eFigures 1–6 (pipeline step 31). It is listed as pending rather than reconstructed without evidence. The figures can be examined in the existing manuscript package, but the last plotting revision cannot presently be reproduced from this GitHub source alone. **Stage 21 source fidelity:** the repository archives a corrected CV-parser deployment builder, but the original executable recorded an MD5 of `64cc76848eeeef02fec044f7345ee464` in the artifact manifest. The exact script with that checksum has not been supplied, so byte-for-byte agreement with the executed fit has not been verified.
 
 The deployment models are final all-years fitted artifacts and must not be substituted for the 2022–2024 fold-specific models when recreating temporal performance. The source [PIPELINE_MANIFEST.csv](PIPELINE_MANIFEST.csv) maps entrypoints to versions; [SOURCE_ARCHIVE_MANIFEST.csv](SOURCE_ARCHIVE_MANIFEST.csv) records Git blob SHA-1 identifiers. Neither manuscript performance nor external validity can be inferred from deployment cross-validation used for choosing boosting rounds.
 

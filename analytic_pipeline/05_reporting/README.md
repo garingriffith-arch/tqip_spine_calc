@@ -10,9 +10,13 @@
 
 The eTable 11 code was executed and reviewed locally, but its licensed record-level prediction inputs and checkpoint RDS files are not distributed in the public repository.
 
-## Unavailable source
+## Figure source and limits
 
-**The final revised code for Figure 1–3 and eFigures 1–6 has not been archived.** Do not claim those figures can be regenerated from this repository until the final executed plotting source is supplied and verified. See [pipeline manifest](../PIPELINE_MANIFEST.csv).
+`31_build_figures.R` references `../implementation/31_build_SPINE_TRACT_figures_v4_SYMMETRIC_FIG2.R`, the latest supplied corrected plot builder. The original source bytes are preserved. It writes Figures 1–3 and eFigures 1–6 as 300-dpi PNG and 600-dpi LZW TIFF files, plus figure source-data CSVs and manifests. No prediction model is fit.
+
+**Output parity remains unverified.** The available figure ZIPs predate the last supplied Figure 2 correction; the repository does not contain the fully approved final rendered figures as a verified comparison set. Do not claim numerical or pixel-level reproduction merely because the source is archived.
+
+To run, set `SPINE_TRACT_PROJECT_DIR` to the authorized local workspace; historical source files preserve their original fallback paths for provenance, while the entrypoint explicitly requires this environment variable. Required upstream files include the repaired frozen primary RDS, predictor-set RDS, Gate 1 cohort-flow CSV, Stage 5 frozen temporal classification/duration and 2024 bootstrap CI CSVs, Stage 2B/2C predictor adjudication CSVs, and Stage 4 subgroup robustness CSV. The script audits its discovered paths in `FIGURE_SOURCE_ARTIFACT_MANIFEST.csv`. These patient-level/intermediate inputs are **not** in a clean GitHub clone.
 
 ## Execution
 

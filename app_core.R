@@ -68,15 +68,9 @@ class_models <- setNames(lapply(setdiff(model_ids, duration_ids), function(id) {
 }), setdiff(model_ids, duration_ids))
 
 # Python XGBoost v3 joint-quantile boosters. Load once per R process.
-# Use existing reticulate Python/conda environment, never create at startup.
-py_env <- Sys.getenv("SPINE_TRACT_PY_ENV", unset = "")
-if (nzchar(py_env)) {
-  if (dir.exists(py_env)) {
-    reticulate::use_python(py_env, required = TRUE)
-  } else {
-    reticulate::use_condaenv(py_env, required = TRUE)
-  }
-}
+# Posit Connect Cloud provisions Python from requirements.txt/manifest.json.
+# Allow reticulate to use RETICULATE_PYTHON (if set by host) or its
+# environment discovery. Never select a workstation-specific Conda env here.
 py_xgb <- tryCatch(reticulate::import("xgboost", convert = FALSE),
                    error = function(e) stop(
                      "Python XGBoost is required for three joint-quantile models. ",

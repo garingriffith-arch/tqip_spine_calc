@@ -45,9 +45,26 @@ Create the environment separately if necessary; do not assume an existing server
 
 **Not tested here**: R Shiny application startup, R 1-row inference, renderUI state preservation and Python/R reticulate interoperability. Run `test_app_contract.R` before deployment and compare predictions against the Stage 21 training environment.
 
-## GitHub and data governance
+## GitHub and deployment artifacts
 
-Do not replace or remove the legacy `data/model_bundle.rds` as a shortcut. The application reads the final deployment model tree locally at `data/deployment_2020_2024/` or from a host-local directory supplied through `SPINE_TRACT_APP_ARTIFACT_DIR`. All new model JSON files, encoder RDS files and the artifact manifest are intentionally ignored by Git and MUST NOT be committed to this public repository. The repository alone therefore cannot run the Shiny app; private deployment requires separately provisioning these artifacts onto the application host with appropriate access controls. Do not use `git add -f` for these files. Git ignore does not protect files separately uploaded to a web host or included in an application bundle; review those deployment pathways independently. NEVER publish ACS PUF rows, prediction caches, direct identifiers or restricted derivatives.
+This project uses the same Git-tracked deployment structure as TBI-TRACT.
+The **eight reviewed** 2020–2024 deployment model JSONs, **eight**
+endpoint-specific encoder RDSs and artifact manifest live under
+`data/deployment_2020_2024/`. The project's `.gitignore` explicitly permits
+these deployment files while excluding other RDS/CSV and patient-level data.
+
+The repository is **public**, so the model and encoder files become publicly
+downloadable (including through commit history). Check applicable ACS TQP PUF
+license and institutional terms **before committing**. Exclude source PUFs,
+derived patient-level records, row-wise predictions, patient identifiers, raw
+outcome data, QC folders and temporary training caches. Do not commit any
+historical temporal-evaluation model in place of the all-years deployment fit.
+
+A working hosted Shiny app also needs R XGBoost plus Python XGBoost >=2 under
+`reticulate`. Git-based code/model distribution alone does not guarantee
+that the hosting runtime has the Python environment for the three joint-quantile
+models. Smoke-test from a clean checkout and verify that the hosting platform
+supports Python before production launch.
 
 ## Features mirrored from TBI-TRACT
 

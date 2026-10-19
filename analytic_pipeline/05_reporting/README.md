@@ -1,15 +1,19 @@
-# Manuscript reporting
+# SPINE-TRACT manuscript reporting
 
-## Available
+## Available archived code
 
-- `30_build_tables.R` runs the archived reviewer-facing R implementation at `../implementation/30_build_SPINE_TRACT_final_tables_PUBLIC_REVIEWER_v4_1.R`.
-- The table builder generates three landscape main tables, eTables 1–10 (including fold-specific analytic sample sizes), and machine-readable source CSVs.
-- It requires the local **repaired diagnosis** cohort and frozen reporting artifacts. It does not run model training or retrieve ACS PUF records.
+- `16_build_prediction_reporting.R` generates fixed-prediction temporal performance, calibration and bootstrap outputs.
+- `17_build_final_manuscript_outputs.R` assembles the manuscript-facing model summaries.
+- `18_repair_pooled_auroc.R` and `19_numeric_auroc_qc.R` implement targeted pooled-AUROC numerical corrections without refitting models.
+- `30_build_tables.R` builds three main tables and eTables 1–10 from the repaired diagnosis cohort and locked upstream aggregates.
+- `32_build_TRIPOD_AI_support.R` builds eTable 11 fixed-prediction 2024 subgroup uncertainty: AUROC/AUPRC/Brier 1,000 patient-level bootstrap percentile intervals and logistic-calibration Wald intervals. It excludes subgroups with fewer than 500 eligible records or fewer than 25 events/non-events; it does not refit any classifier.
 
-## Pending archive
+The eTable 11 code was executed and reviewed locally, but its licensed record-level prediction inputs and checkpoint RDS files are not distributed in the public repository.
 
-- Final Figure 1–3 and eFigure 1–6 R source, after the final visual QA changes are incorporated.
-- TRIPOD+AI subgroup bootstrap reporting source after final execution/QA.
-- Full package/environment manifests and deidentified aggregate QC summaries.
+## Unavailable source
 
-Until the corresponding final source files are archived, figure or subgroup results in the manuscript should be traced to the authors' locked local analysis package, not claimed to be reproducible directly from this public repository.
+**The final revised code for Figure 1–3 and eFigures 1–6 has not been archived.** Do not claim those figures can be regenerated from this repository until the final executed plotting source is supplied and verified. See [pipeline manifest](../PIPELINE_MANIFEST.csv).
+
+## Execution
+
+Set `SPINE_TRACT_PROJECT_DIR` to the licensed workspace. Run numbered entrypoints from the repository root after upstream repaired-DX datasets and model prediction caches exist. Do not substitute all-years deployment model predictions for the historical 2024 fold-specific evaluation predictions. Reporting is not a new model-fitting or validation stage.

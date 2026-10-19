@@ -51,3 +51,8 @@ checkpoints/
 
 # Local workstation configuration is not versioned
 R/00_config.R
+
+# Reviewed Stage 21 SPINE-TRACT deployment assets only (no patient-level files).
+# Files must be checked against ACS-derived model sharing requirements before publication.
+!data/deployment_2020_2024/encoders/*.rds
+!data/deployment_2020_2024/artifact_manifest.csv

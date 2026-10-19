@@ -1,6 +1,8 @@
 # Final SPINE-TRACT deployment models
 
-The completed Stage 21 builder is represented by `21_fit_deployment_models.R`, with a corrected CV-parser source under `../implementation/21_build_SPINE_TRACT_deployment_2020_2024_CVFIX_v2.R`. **Source provenance limit:** the deployment artifact manifest records `source_file_md5=64cc76848eeeef02fec044f7345ee464`; the available corrected builder copy does not have that MD5. The source is included as an executable reference, not represented as a verified byte-identical copy of the exact file used for the deployed fit.
+Stage 21 now points to the archived October 19 fixed-CV-parser source `../implementation/21_build_SPINE_TRACT_deployment_2020_2024_FIXED_20261019.R`. Its archived file MD5 is `e2e81bb9c273b5f182517601796a511f`, with Git blob SHA-1 recorded in the source manifest. The prior `...CVFIX_v2.R` remains in `../implementation/` for historical comparison and is **not** the numbered entrypoint.
+
+**Important provenance correction:** `data/deployment_2020_2024/artifact_manifest.csv` records `source_file_md5=64cc76848eeeef02fec044f7345ee464`. The source code writes this field using `source_hash$frozen_dataset`; it is the repaired cohort dataset MD5, **not the executed R script MD5**. The manifest therefore cannot be used to assert byte-for-byte correspondence between the recovered script and the successful model fits. The dataset checksum and model artifact checksums have been left unchanged. Recovery of the script is archival; exact execution parity is not independently attested.
 
 The deployment procedure retains each endpoint's repaired-diagnosis predictor policy and the 2024-selected structural configuration, uses three-fold **internal CV only to select boosting rounds**, then fits eligible 2020–2024 data. This is not independent evaluation or an update to the manuscript's rolling-origin performance metrics.
 

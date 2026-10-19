@@ -13,8 +13,8 @@ required <- c("step", "entrypoint", "implementation", "git_blob_sha1")
 stopifnot(all(required %in% names(archive)),
           all(c("step", "entrypoint", "implementation") %in% names(pipeline)))
 stages <- pipeline[pipeline$step != "PENDING", , drop = FALSE]
-if (nrow(stages) != 22L || nrow(archive) != 22L) {
-  stop("Expected 22 archived sources (steps 01–21 and 32).", call. = FALSE)
+if (nrow(stages) != 23L || nrow(archive) != 23L) {
+  stop("Expected 23 archived sources (steps 01–21, 31 and 32).", call. = FALSE)
 }
 if (anyDuplicated(stages$step) || anyDuplicated(archive$step) ||
     anyDuplicated(archive$implementation)) {
@@ -36,6 +36,24 @@ missing <- c(entry[!file.exists(entry)], impl[!file.exists(impl)])
 if (length(missing)) {
   stop("Missing file(s):\n", paste(missing, collapse = "\n"), call. = FALSE)
 }
+# An entrypoint must refer to the implementation recorded in both manifests.
+for (i in seq_along(entry)) {
+  lines <- readLines(entry[i], warn = FALSE)
+  if (!any(grepl(basename(impl[i]), lines, fixed = TRUE))) {
+    stop("Entrypoint does not reference its recorded implementation: ", entry[i],
+         call. = FALSE)
+  }
+}
+
+# The historical deployment manifest field named source_file_md5 is a frozen
+# DATASET checksum, not the Stage 21 R script MD5. Never compare it to the script.
+stage21_path <- file.path(base, "implementation",
+ "21_build_SPINE_TRACT_deployment_2020_2024_FIXED_20261019.R")
+stage21_md5 <- unname(tools::md5sum(stage21_path))
+if (!identical(stage21_md5, "e2e81bb9c273b5f182517601796a511f")) {
+  stop("Recovered Stage 21 source MD5 differs from archived file.", call. = FALSE)
+}
+
 # Require Git and verify file content, not just manifest shape.
 git <- Sys.which("git")
 if (!nzchar(git)) stop("Git is required for source SHA verification.", call. = FALSE)

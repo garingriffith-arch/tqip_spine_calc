@@ -11,28 +11,56 @@
 
 Preserve the existing `www/ohsu_logo.png` in the GitHub repository. Without it the UI displays 'OHSU' text.
 
-## Local RStudio launch
+## Local RStudio testing and Connect Cloud manifest
 
-From a fresh R session in this app directory:
+From a **fresh** R session at this Git clone's root:
 
 ```r
-install.packages(c("shiny", "bslib", "data.table", "Matrix", "xgboost", "reticulate"))
-Sys.setenv(SPINE_TRACT_PY_ENV = "tbi-tract-xgb-gpu")
+install.packages(c("shiny", "bslib", "data.table", "Matrix",
+                   "xgboost", "reticulate", "rsconnect", "jsonlite"))
+# Restart R after installing packages if needed.
+setwd("C:/Users/garin/Downloads/tqip_spine_calc")
+Sys.setenv(RETICULATE_PYTHON =
+  reticulate::conda_python("tbi-tract-xgb-gpu"))
 source("test_app_contract.R")
 shiny::runApp(".", launch.browser = TRUE)
 ```
 
-**Python dependency**: the three multi-quantile models require Python XGBoost >=2 (the models were saved by XGBoost 3.2.0). The app uses `reticulate` to load Python XGBoost. Configure `SPINE_TRACT_PY_ENV` to an EXISTING conda environment, or omit the variable if `reticulate` already selects an appropriate Python. The application never attempts to install an environment at startup.
+To produce the deployable R/Python dependency manifest (without including
+machine-specific Python paths), run:
 
-For instance, in PowerShell:
-
-```powershell
-$env:SPINE_TRACT_PY_ENV = "tbi-tract-xgb-gpu"
+```r
+source("prepare_connect_cloud_manifest.R")
 ```
 
-Create the environment separately if necessary; do not assume an existing server has the workstation's conda environment.
+The helper explicitly includes only the 8 deployment JSONs, 8 encoder
+RDS files, model artifact manifest, Shiny sources, the logo and Python
+requirements. It verifies that `manifest.json` contains **reticulate**
+and a **Python** version with `requirements.txt`. Commit and push only
+the generated `manifest.json` (and reviewed deployment source changes).
 
-**Deployment hosting**: confirm a stable Python runtime with XGBoost >=2 and R reticulate integration. On Posit Connect, configure Python as described in the host's documentation. A plain R-only shinyapps.io deployment has not been verified with these Python-backed quantile models.
+The three joint-quantile models require Python XGBoost **3.2.0**, pinned in
+`requirements.txt`. For Connect Cloud the app relies on host-provided
+`RETICULATE_PYTHON` (or reticulate auto-discovery); it never uses
+`reticulate::use_condaenv()` at runtime. Do not commit local Conda paths,
+`.Renviron` or environment directories.
+
+## Deploy from GitHub to Posit Connect Cloud
+
+1. Open <https://connect.posit.cloud> and select **Publish** > **Shiny**.
+2. Choose `garingriffith-arch/tqip_spine_calc`, branch
+   `spine-tract-2020-2024-app`, and primary file `app.R`.
+3. Make sure the committed `manifest.json` includes R `reticulate` plus
+   a Python environment and the repo contains `requirements.txt`.
+4. Set automatic republishing as preferred and begin publishing.
+5. Check both R and Python environment restoration in the build logs.
+   Open the app and test the full model set, including all three
+   joint-quantile duration outputs, before merging into `main`.
+
+Connect Cloud supports mixed R/Python content when both dependency
+descriptions are present. If the Python environment fails to build, read
+the specific build log before altering the models or retraining.
+Clinical predictions have **not** been independently externally validated.
 
 ## Numerical contract
 

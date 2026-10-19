@@ -6,4 +6,4 @@ No routine transfer-in sensitivity was undertaken: transfer-in patients have a d
 
 Facility-level heterogeneity was not assessed because usable facility identifiers were unavailable.
 
-**Archive status:** Final local analysis scripts and aggregate outputs have not yet been transferred here. The public archive does not claim to include all subgroup model predictions or patient-level data.
+**Archive status:** Numbered entrypoints 12–15 and their preserved implementations are archived. The complete patient-level prediction caches and local sensitivity outputs are not publicly distributed. Public code availability does not imply no-data reproduction.

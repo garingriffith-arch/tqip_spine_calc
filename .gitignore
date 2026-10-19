@@ -42,6 +42,7 @@ checkpoints/
 # Archive aggregate CSVs only by explicit review/allow-list
 *.csv
 !analytic_pipeline/PIPELINE_MANIFEST.csv
+!analytic_pipeline/SOURCE_ARCHIVE_MANIFEST.csv
 !analytic_pipeline/reference/
 !analytic_pipeline/reference/spine_operative_icd10pcs_map.csv
 

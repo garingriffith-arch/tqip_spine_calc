@@ -17,6 +17,7 @@ rsconnect/
 # Restricted source data and patient-level/derived modeling outputs
 data/raw/
 data/derived/
+data/evaluation_2024/
 output/
 outputs/
 cache/
@@ -34,11 +35,6 @@ checkpoints/
 *.rda
 *.qs
 
-# Preserve previously committed legacy app artifacts.
-# These are NOT the final revised-manuscript deployment models.
-!data/model_bundle.rds
-!data/predictor_metadata.rds
-
 # Archive aggregate CSVs only by explicit review/allow-list
 *.csv
 !analytic_pipeline/PIPELINE_MANIFEST.csv
@@ -52,9 +48,8 @@ checkpoints/
 # Local workstation configuration is not versioned
 R/00_config.R
 
-# Explicitly publish ONLY final, reviewed 2020–2024 deployment models,
-# encoders, and artifact provenance (analogous to the TBI-TRACT repository).
-# Never commit source ACS PUFs, row-wise predictions, record IDs or QC extracts.
+# Only final all-years deployment artifacts are intentionally public.
+# ACS source PUFs, patient-level outputs and intermediate models remain excluded.
 !data/deployment_2020_2024/models/
 !data/deployment_2020_2024/models/*.json
 !data/deployment_2020_2024/encoders/
